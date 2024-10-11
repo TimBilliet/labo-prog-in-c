@@ -25,6 +25,7 @@ int main() {
     //         }
     //     }
     // }
+
     // V2
     for (int i = 1; i <= AANTALTERMEN * 2; i++) {
         int n = 2 * i + 1;
