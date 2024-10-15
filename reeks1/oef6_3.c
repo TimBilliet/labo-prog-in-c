@@ -7,7 +7,8 @@ int main() {
 
     double uitkomst = 1;
     srand(time(NULL));
-    int random = van + rand() % (tot - van + 1);
+    int random = van + rand() % (tot - van + 1);  //[van,tot]
+    int random = van + rand() % (tot - van);      //[van,tot[
     printf("Random getal tussen %d en %d = %d\n", van, tot, random);
 
     for (int i = 1; i <= tot; i++) {
