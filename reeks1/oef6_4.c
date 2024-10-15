@@ -9,11 +9,11 @@ int main() {
 
     int userInput;
     printf("Vul een getal in tussen 2 en 20 (grenzen inbegrepen)\n");
-    scanf("%d", &userInput);
-    while (userInput < van || userInput > tot) {
+
+    while (scanf("%d", &userInput) == 0 || userInput < van || userInput > tot) {
         printf("Foute invoer\n");
+        printf("Vul een getal in tussen 2 en 20 (grenzen inbegrepen)\n");
         while (getchar() != '\n');
-        scanf("%d", &userInput);
     }
     for (int i = 1; i <= tot; i++) {
         uitkomst = uitkomst * i;
