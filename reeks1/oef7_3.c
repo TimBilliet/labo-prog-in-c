@@ -9,21 +9,16 @@ int main() {
     srand(time(NULL));
     double hoek = (double)(van + rand() % (tot - van)) / 1000;
     //  OF
-    //  double hoek = (van + rand() % (tot - van)) / 1000.0;
-    double faculteit = 1;
-    int minOfPlus = 1;
-    double x = hoek;
-    double resultaat = hoek;
-    long long teller = 1;
-    double hoekKwadraat = hoek * hoek;  // op voorhand berekenen om een extra vermenigvuldiging te vermijden
 
-    while (((x < 0) ? -x : x) / faculteit > 1e-16) {  //(x < 0) ? -x : x) = absolute waarde van x
-        int n = 2 * teller + 1;
-        faculteit = faculteit * n * (n - 1);
-        x *= hoekKwadraat;
-        resultaat += (minOfPlus ? -1 : 1) * (x / faculteit);
-        minOfPlus = !minOfPlus;
-        teller++;
+    //  double hoek = (van + rand() % (tot - van)) / 1000.0;
+    double resultaat = 0;
+    double term = hoek;
+
+    int n = 1;
+    while (((term < 0) ? -term : term) > 1e-16) {  //(x < 0) ? -x : x) = absolute waarde van x
+        resultaat += term;
+        n += 2;
+        term *= -1 * (hoek * hoek / (n * (n - 1)));
     }
 
     printf("Sinus van %frad = %f\n", hoek, resultaat);

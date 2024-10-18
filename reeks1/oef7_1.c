@@ -2,38 +2,17 @@
 #include <stdio.h>
 
 int main() {
-    const double hoek = 4;
-    double faculteit = 1;
-    int minOfPlus = 1;
-    double x = hoek;
-    double resultaat = hoek;
+    const double hoek = 0.402;
+    double resultaat = 0;
     const int AANTALTERMEN = 10;
-    // V1
-    // for (int i = 1; i <= AANTALTERMEN * 2; i++) {
-    //     faculteit = faculteit * i;
+    double term = hoek;
 
-    //     if (i > 1) {
-    //         x = x * hoek;
-    //         if (i % 2 != 0) {
-    //             printf("%d! = %f  macht=%f\n", i, faculteit, x);
+    int n = 1;
 
-    //             if (minOfPlus) {
-    //                 resultaat -= (1 / faculteit) * x;
-    //             } else if (!minOfPlus) {
-    //                 resultaat += (1 / faculteit) * x;
-    //             }
-    //             minOfPlus = !minOfPlus;
-    //         }
-    //     }
-    // }
-
-    // V2
     for (int i = 1; i <= AANTALTERMEN; i++) {
-        int n = 2 * i + 1;
-        faculteit = faculteit * n * (n - 1);
-        x = x * hoek * hoek;
-        resultaat += (minOfPlus ? -1 : 1) * (x / faculteit);
-        minOfPlus = !minOfPlus;
+        resultaat += term;
+        n += 2;
+        term *= -1 * (hoek * hoek / (n * (n - 1)));
     }
 
     printf("Sinus van %frad = %f\n", hoek, resultaat);
