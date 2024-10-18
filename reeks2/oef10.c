@@ -28,10 +28,11 @@ int zijn_onderling_ondeelbaar(int a, int b) {
 }
 
 void print_onderling_ondeelbaar(int a, int b) {
-    int array[4];
-    for (int i = a; i < b; i++) {
-        for (int j = a + 1; j <= b; j++) {
-            printf("%d en %d \n", i, j);
+    for (int i = a; i <= b; i++) {
+        for (int j = i; j <= b; j++) {
+            if (zijn_onderling_ondeelbaar(i, j) == 1) {
+                printf("%d en %d zijn onderling ondeelbaar\n", i, j);
+            }
         }
     }
 }
