@@ -1,6 +1,7 @@
+#include <math.h>
 #include <stdio.h>
 
-int index_van(double array[], int lengte, double getal);
+int index_van(const double array[], int lengte, double getal);
 
 int main() {
     double getallen[] = {1.2, 3.4, 5.6, 3.4, 9.0, 3.4, 9.0, 1.2};
@@ -21,9 +22,9 @@ int main() {
     return 0;
 }
 
-int index_van(double array[], int lengte, double getal) {
+int index_van(const double array[], int lengte, double getal) {
     for (int i = 0; i < lengte; i++) {
-        if (array[i] <= getal + 0.0001 && array[i] >= getal - 0.0001) {
+        if (fabs(array[i] - getal) < 0.00001) {
             return i;
         }
     }
