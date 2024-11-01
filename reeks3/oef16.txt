@@ -1,0 +1,39 @@
+int main() {
+    int i=7, j; declaratie van 2 ints i is 7, j is niet geïnitialiseerd
+    double d; declaratie van 1 double
+    int *ip, *jp, *tp; declaratie van 3 pointers naar ints
+    double *dp; declaratie van een pointer naar een double
+    void *v; declaratie van een void pointer
+    const int *p1; declaratie van pointer naar constante int
+    int * const p2 = &i; constante pointer naar een int met het adres van i
+    int t[5] = {10,20,30,40,50}; array t / constante pointer t
+
+    /* 1*/ jp = &i; pointer jp wijst naar i
+    /* 2*/ j = *jp; j = 7
+    /* 3*/ *ip = i; fout, ip wijst nog naar niks
+    /* 4*/ ip = jp; ip wijst naar hetzelfde adres als jp (wijst naar i)
+    /* 5*/ &i = ip; gaat niet, een adres kan je niet gewoon veranderen
+    /* 6*/ (*ip)++; incrementeer de waarde waarnaar ip wijst met 1 (i++): i = 8
+
+    /* 7*/ tp = t+2; tp bevat het adres van het 3de element van het t array, zelfde als &t[2]
+    /* 8*/ j = &t[4] - tp; tp en &t[4] verschillen 2 plaatsen dus wordt j 2
+    /* 9*/ t++; gaat niet, t is een constante pointer
+    /*10*/ (*t)++; eerste element van het array wordt met 1 opgeteld, 10 wordt 11, zelfde als t[0] += 1
+    /*11*/ j = (*tp)++; int j bevat de waarde waar tp naar wijst, daarna wordt die waarde in het array opgeteld met 1 (j = 30, t[2] = 31)
+    /*12*/ i = *tp++; i krijgt de waarde waar tp naar wijst en daarna wordt verschuift tp 1 naar rechts (i=31, tp = t[3])
+
+    /*13*/ v = tp++; v wijst naar het 4de element van het t array, daarna wijst tp naar het vijfde element (v = t[3], tp=t[4])
+    /*14*/ printf("%d", *v); gaat niet, void pointer kan je niet printen
+    /*15*/ v++; void pointer kan je niet incrementeren
+
+    /*16*/ p1 = ip; pointer naar constante (p1) wijst naar zelfde adres als ip (naar i)
+    /*17*/ jp = p1; gaat niet, beveiligingsfout. men probeert de beschermign van de pointer naar constante (p1) te omzeilen
+    /*18*/ (*p1)--; gaat niet, via p1 mag de waarde waarnaar er wordt verwezen niet veranderd worden
+    /*19*/ dp = &i; gaat niet, dp moet naar een double wijzen, geen int
+    /*20*/ dp = v; gaat maar niet de bedoeling, nu wijst dp wel naar een int
+
+    /*21*/ jp = p2; jp wijst nu ook naar wat de constante pointer p2 naar wijst
+    /*22*/ p2 = p1; gaat niet, p2 is constant en mag niet veranderd worden
+    /*23*/ *p2 += i; i wordt i+i
+    return 0;
+}
