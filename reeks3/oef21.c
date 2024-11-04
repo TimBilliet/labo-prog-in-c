@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int* plaats_van(int* t, int n, int g);
+void plaats_ptr_op_getal(int* p, int n, int g);
 
 int main() {
     int arr[] = {0, 1, 2, 53, 4, 5, 6, 7, 8};
@@ -8,9 +9,13 @@ int main() {
     // printf("%d", plaats_van(arr, sizeof(arr) / sizeof(arr[0]), 55));
     int* plaats_van_getal = plaats_van(arr, sizeof(arr) / sizeof(arr[0]), getal);
     if (plaats_van_getal != NULL) {
-        printf("%d komt voor, adres =  %p\n", getal, plaats_van_getal);
+        printf("%d komt voor op index %d, adres =  %p\n", getal, plaats_van_getal - arr, plaats_van_getal);
+        *plaats_van_getal *= 2;
     } else {
         printf("%d komt niet voor\n", getal);
+    }
+    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
+        printf("%d, ", arr[i]);
     }
     return 0;
 }
@@ -23,4 +28,9 @@ int* plaats_van(int* t, int n, int g) {
         t++;
     }
     return NULL;
+}
+
+void plaats_ptr_op_getal(const int* p, int n, int g) {
+    for (int i = 0; i < n; i++) {
+    }
 }
