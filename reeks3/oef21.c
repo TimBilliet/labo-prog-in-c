@@ -38,7 +38,7 @@ int main() {
     return 0;
 }
 
-int* plaats_van(int* t, int n, int g) {
+int* plaats_van(int* t, int n, int g) {  // geen const int* t want dan moet ook een const int* gereturned worden
     for (int i = 0; i < n; i++) {
         if (g == *t) {
             return t;

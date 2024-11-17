@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void schrijf(char*, char*);
+void schrijf(const char*, const char*);
 void pivoteer(char*, char*, char*);
 
 int main() {
@@ -13,7 +13,7 @@ int main() {
     return 0;
 }
 
-void schrijf(char* begin, char* eind) {
+void schrijf(const char* begin, const char* eind) {
     while (begin < eind) {
         printf("%c", *begin++);
     }

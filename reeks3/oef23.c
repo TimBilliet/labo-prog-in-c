@@ -19,7 +19,7 @@ void schrijf(const int* t, int aantal) {
         printf("%d ", t[i]);
     printf("\n");
 }
-void vul_array(int*, int*, int*, int, int (*)(int, int));
+void vul_array(const int*, const int*, int*, int, int (*)(int, int));
 
 int main() {
     int a[AANTAL];
@@ -41,7 +41,7 @@ int main() {
     return 0;
 }
 
-void vul_array(int* a, int* b, int* c, int aantal, int (*func_p)(int, int)) {
+void vul_array(const int* a, const int* b, int* c, int aantal, int (*func_p)(int, int)) {
     for (int i = 0; i < aantal; i++) {
         c[i] = func_p(a[i], b[i]);
     }
