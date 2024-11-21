@@ -3,7 +3,7 @@
 void my_toupper(char*);
 
 int main(int argc, char** argv) {
-    if (argc == 0) {
+    if (argc == 1) {
         printf("Dag allemaal!\n");
     } else {
         for (int i = 1; i < argc; i++) {
