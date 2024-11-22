@@ -12,11 +12,13 @@ int main(int argc, char** argv) {
 }
 
 void wis(char* s) {
+    char* juiste_woord_ptr = s;
     while (*s != 0) {
-        printf("%c\n", *s);
-        if (!islower(*s)) {
-            *s = ' ';
+        if (islower(*s) || isspace(*s)) {
+            *juiste_woord_ptr = *s;
+            juiste_woord_ptr++;
         }
         s++;
     }
+    *juiste_woord_ptr = '\0';
 }
