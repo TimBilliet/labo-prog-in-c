@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int* plaats_van(int* t, int n, int g);
-int* plaats_ptr_op_getal(int** p, int n, int g);
+int* plaats_ptr_op_getal(const int** const p, int n, int g);
 
 int main() {
     int arr[] = {20, 1, 2, 53, 4, 5, 6, 10, 8};
@@ -48,10 +48,10 @@ int* plaats_van(int* t, int n, int g) {  // geen const int* t want dan moet ook 
     return NULL;
 }
 
-int* plaats_ptr_op_getal(int** p, int n, int g) {
+int* plaats_ptr_op_getal(const int** const p, int n, int g) {
     for (int i = 0; i < n; i++) {
         if (**p == g) {
-            return *p;
+            // return;NOG TE FIXEN
         }
         (*p)++;
     }
