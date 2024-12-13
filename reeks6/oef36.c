@@ -38,9 +38,14 @@ knoop* maak_gesorteerde_lijst_automatisch(int aantal, int einde) {
 }
 
 void verwijder_dubbels(knoop* list) {
-    // while(list) {
-    //   list = list->volgend;
-    //}
+    while (list) {
+        while (list->volgend != NULL && list->getal == list->volgend->getal) {
+            knoop* hulp = list->volgend;
+            list->volgend = list->volgend->volgend;
+            free(hulp);
+        }
+        list = list->volgend;
+    }
 }
 
 void print_lijst(const knoop* list) {
