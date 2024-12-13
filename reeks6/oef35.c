@@ -8,7 +8,7 @@ struct knoop {
     knoop *volgend;
 };
 
-void print_lijst();
+void print_lijst(const knoop *);
 void voeg_vooraan_toe(int, knoop **);
 void vernietig_lijst(knoop **);
 int main() {
@@ -31,10 +31,16 @@ void voeg_vooraan_toe(int getal, knoop **list) {
 }
 
 void vernietig_lijst(knoop **list) {
-    knoop *hulp = (*list)->volgend;
-    while (hulp != NULL) {
-        free(*list);
-        *list = hulp->volgend;
-        hulp = *list;
+    while (*list) {
+        knoop *hulp = *list;
+        *list = (*list)->volgend;
+        free(hulp);
     }
+}
+void print_lijst(const knoop *list) {
+    while (list) {
+        printf("%d ", list->getal);
+        list = list->volgend;
+    }
+    printf("X\n");
 }
