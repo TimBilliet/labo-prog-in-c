@@ -38,8 +38,35 @@ int main() {
     return 0;
 }
 knoop* merge(knoop** m, knoop** n) {
-    return *m;
+    knoop* list_out;
+    if ((**m).getal > (**n).getal) {
+        list_out = *n;
+        *n = (**n).volgend;
+    } else if ((**m).getal <= (**n).getal) {
+        list_out = *m;
+        *m = (**m).volgend;
+    }
+    knoop* hulp = list_out;
+    while (*m != NULL && *n != NULL) {
+        if ((**m).getal > (**n).getal) {
+            (*hulp).volgend = *n;  // of hulp->volgend = *n;
+            *n = (**n).volgend;
+        } else if ((**m).getal <= (**n).getal) {
+            (*hulp).volgend = *m;
+            *m = (**m).volgend;
+        }
+        hulp = (*hulp).volgend;
+    }
+    if (*m) {
+        (*hulp).volgend = *m;
+    } else {
+        (*hulp).volgend = *n;
+    }
+    *m = NULL;
+    *n = NULL;
+    return list_out;
 }
+
 knoop* maak_gesorteerde_lijst_automatisch(int aantal, int einde) {
     int getal = einde;  //[0, einde]
     knoop* lst = 0;
