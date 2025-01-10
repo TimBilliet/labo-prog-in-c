@@ -26,7 +26,7 @@ char* alfab_kleinste(char** voornamen, int n) {
 }
 
 void my_toupper(char* woord) {
-    if (*woord >= 'a' & *woord <= 'z') {
+    if (*woord >= 'a' && *woord <= 'z') {
         *woord = *woord - ('a' - 'A');
     }
     woord++;

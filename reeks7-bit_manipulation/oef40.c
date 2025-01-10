@@ -31,7 +31,6 @@ uint eenbit(int i) {
 }
 
 int aantal_eenbits(uint x) {
-    int mask = 1;
     int count = 0;
     while (x) {
         count += (x & 1);

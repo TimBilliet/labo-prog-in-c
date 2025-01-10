@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 }
 
 void my_toupper(char* woord) {
-    if (*woord >= 'a' & *woord <= 'z') {
+    if (*woord >= 'a' && *woord <= 'z') {
         *woord = *woord - ('a' - 'A');
     }
     woord++;
